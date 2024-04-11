@@ -20,7 +20,7 @@ public class Frame extends JFrame {
         //int y = (screenSize.height - height) / 2;
         //setLocation(x, y);
 
-        JLabel name = new JLabel("Введіть ім'я:");
+        JLabel name = new JLabel("Hello");
         name.setBounds(30, 40, 200, 10);
         JTextField name_field = new JTextField();
         name_field.setBounds(120, 37, 150, 20);
