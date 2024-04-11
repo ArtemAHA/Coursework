@@ -25,7 +25,7 @@ public class Frame extends JFrame{
         JTextField name_field = new JTextField();
         name_field.setBounds(165, 40, 150, 20);
 
-        JLabel last_name = new JLabel("Введіть прізвище:");
+        JLabel last_name = new JLabel("Enter last name:");
         last_name.setBounds(30, 70, 200, 20);
         JTextField last_name_field = new JTextField();
         last_name_field.setBounds(165, 70, 150,20);
