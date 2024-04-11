@@ -20,7 +20,7 @@ public class Frame extends JFrame{
         Container conteiner = super.getContentPane();
         conteiner.setLayout(null);
 
-        JLabel name = new JLabel("Введіть ім'я:");
+        JLabel name = new JLabel("Enter name:");
         name.setBounds(30, 40, 200, 20);
         JTextField name_field = new JTextField();
         name_field.setBounds(165, 40, 150, 20);
