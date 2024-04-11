@@ -35,7 +35,7 @@ public class Frame extends JFrame{
         conteiner.add(last_name);
         conteiner.add(last_name_field);
 
-        JLabel disceplin = new JLabel("Зазначте тип десцепліни:");
+        JLabel disceplin = new JLabel("Artem gay:");
         disceplin.setBounds(30, 110, 200, 20);
 
         JRadioButton disceplin_viber = new JRadioButton("Вибіркова");
