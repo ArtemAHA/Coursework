@@ -51,6 +51,7 @@ public class Frame extends JFrame{
                 this.setSize(width, height);
                 this.setLocationRelativeTo(null);
                 this.setLayout(null);
+                this.getContentPane().setBackground(new Color(179, 200, 207));
                 this.setVisible(true);
                 this.setResizable(false);
                 //--------------------/Frame Setup---------------------
