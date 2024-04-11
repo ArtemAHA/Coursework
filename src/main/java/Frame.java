@@ -26,9 +26,12 @@ public class Frame extends JFrame{
                 //---------------------Discipline Buttons---------------------
                 JRadioButton disceplineElectiveButton = new JRadioButton("Elective");
                 disceplineElectiveButton.setBounds(165, 110, 100, 20);
+                disceplineElectiveButton.setFocusable(false);
 
                 JRadioButton disceplineProgramButton = new JRadioButton("According to the program");
                 disceplineProgramButton.setBounds(265, 110, 200, 20);
+                disceplineProgramButton.setFocusable(false);
+                disceplineProgramButton.setSelected(true);
 
                 ButtonGroup disceplineGroup = new ButtonGroup();
                 disceplineGroup.add(disceplineProgramButton);
