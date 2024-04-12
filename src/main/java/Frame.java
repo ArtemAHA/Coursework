@@ -38,6 +38,12 @@ public class Frame extends JFrame{
                 disceplineGroup.add(disceplineElectiveButton);
                 //--------------------/Discipline Buttons---------------------
 
+                //---------------------DepartmentComboBox---------------------
+                String[] departments = {"Department of Computer Science", "Department of Mathematics", "Department of Physics"};
+                JComboBox<String> departmentList = new JComboBox<>(departments);
+                departmentList.setBounds(30, 150, 200, 20);
+                //--------------------/DepartmentComboBox---------------------
+
                 //---------------------Frame Setup---------------------
                 this.add(name);
                 this.add(nameField);
@@ -46,6 +52,7 @@ public class Frame extends JFrame{
                 this.add(discepline);
                 this.add(disceplineElectiveButton);
                 this.add(disceplineProgramButton);
+                this.add(departmentList);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setSize(width, height);
