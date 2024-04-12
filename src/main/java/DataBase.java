@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DataBase extends JFrame implements ActionListener {
     JPanel dataBasePanel;
@@ -10,8 +11,9 @@ public class DataBase extends JFrame implements ActionListener {
     JTextField searchField;
     JButton searchButton;
     JButton removeButton;
-
-    DataBase() {
+    ArrayList<TeacherData> teacherDataList;
+    DataBase(ArrayList<TeacherData> teacherDataList) {
+        this.teacherDataList = teacherDataList;
 
         //---------------------dataBasePanel settings---------------------
         dataBasePanel = new JPanel();
@@ -69,6 +71,7 @@ public class DataBase extends JFrame implements ActionListener {
         this.add(dataBasePanel);
         this.add(searchPanel);
 
+        this.setResizable(false);
         this.setVisible(true);
         //--------------------/Frame settings---------------------
     }
