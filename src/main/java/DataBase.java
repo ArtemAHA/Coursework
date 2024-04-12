@@ -12,8 +12,27 @@ public class DataBase extends JFrame implements ActionListener {
     JButton searchButton;
     JButton removeButton;
     ArrayList<TeacherData> teacherDataList;
+    JTable dataTable;
+    JScrollPane scrollPane;
     DataBase(ArrayList<TeacherData> teacherDataList) {
+        //---------------------Data Table Setup---------------------
         this.teacherDataList = teacherDataList;
+        String[][] data = new String[teacherDataList.size()][7];
+
+        for (int i = 0; i < teacherDataList.size(); i++) {
+            TeacherData teacherData = teacherDataList.get(i);
+            data[i][0] = String.valueOf(teacherData.getId());
+            data[i][1] = teacherData.getName();
+            data[i][2] = teacherData.getLastName();
+            data[i][3] = teacherData.getDiscepline();
+            data[i][4] = teacherData.getDepartment();
+            data[i][5] = teacherData.getDisceplineName();
+            data[i][6] = teacherData.getDisceplineTime();
+        }
+
+        String[] columnsNames = {"ID", "Name", "Last Name", "Discepline", "Department", "Discepline Name", "Discepline Time"};
+        //--------------------/Data Table Setup---------------------
+
 
         //---------------------dataBasePanel settings---------------------
         dataBasePanel = new JPanel();
@@ -59,6 +78,13 @@ public class DataBase extends JFrame implements ActionListener {
         removeButton.addActionListener(this);
         searchPanel.add(removeButton);
         //--------------------/removeButton settings---------------------
+
+        //---------------------dataTable settings---------------------
+        JTable dataTable = new JTable(data, columnsNames);
+        scrollPane = new JScrollPane(dataTable);
+        scrollPane.setBounds(0, 130, 1000, 620);
+        this.add(scrollPane);
+        //--------------------/dataTable settings---------------------
 
         //---------------------Frame settings---------------------
         this.setTitle("Data Base");
