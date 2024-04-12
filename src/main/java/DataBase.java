@@ -1,8 +1,10 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DataBase extends JFrame implements ActionListener {
     JPanel dataBasePanel;
@@ -80,7 +82,8 @@ public class DataBase extends JFrame implements ActionListener {
         //--------------------/removeButton settings---------------------
 
         //---------------------dataTable settings---------------------
-        JTable dataTable = new JTable(data, columnsNames);
+        DefaultTableModel model = new DefaultTableModel(data, columnsNames);
+        dataTable = new JTable(model);
         scrollPane = new JScrollPane(dataTable);
         scrollPane.setBounds(0, 130, 1000, 620);
         this.add(scrollPane);
@@ -104,6 +107,24 @@ public class DataBase extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == searchButton) {
+            String searchQuery = searchField.getText().toLowerCase();
+            for (int i = 0; i < dataTable.getRowCount(); i++) {
+                for (int j = 0; j < dataTable.getColumnCount(); j++) {
+                    if (dataTable.getValueAt(i, j).toString().toLowerCase().contains(searchQuery)) {
+                        dataTable.setRowSelectionInterval(i, i);
+                        return;
+                    }
+                }
+            }
+        }
 
+        if(e.getSource() == removeButton) {
+            int selectedRow = dataTable.getSelectedRow();
+            if (selectedRow != -1) {
+                teacherDataList.remove(selectedRow);
+                ((DefaultTableModel) dataTable.getModel()).removeRow(selectedRow);
+            }
+        }
     }
 }
