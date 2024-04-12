@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Frame extends JFrame {
+public class Frame extends JFrame implements ActionListener {
         JLabel nameLabel;
         JTextField nameField;
         JLabel lastNameLabel;
@@ -17,7 +19,7 @@ public class Frame extends JFrame {
         JLabel disceplineTime;
         JTextField disceplineTimeField;
         JButton addItemButton;
-        JButton dataBase;
+        JButton dataBaseButton;
         Frame(){
                 super("CourseWork");
                 //Window size
@@ -83,12 +85,14 @@ public class Frame extends JFrame {
                 addItemButton = new JButton("ADD");
                 addItemButton.setSize(170, 50);
                 addItemButton.setBounds(150, 330, 170, 50);
+                addItemButton.addActionListener(this);
                 //---------------------/AddItemButton------------------------
 
                 //----------------------Database-----------------------------
-                dataBase = new JButton("Database");
-                dataBase.setSize(170, 50);
-                dataBase.setBounds(620, 330, 170, 50);
+                dataBaseButton = new JButton("Database");
+                dataBaseButton.setSize(170, 50);
+                dataBaseButton.setBounds(620, 330, 170, 50);
+                addItemButton.addActionListener(this);
                 //----------------------/Database-----------------------------
 
                 //---------------------Frame Setup---------------------
@@ -106,7 +110,7 @@ public class Frame extends JFrame {
                 this.add(disceplineTime);
                 this.add(disceplineTimeField);
                 this.add(addItemButton);
-                this.add(dataBase);
+                this.add(dataBaseButton);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setSize(width, height);
@@ -117,4 +121,15 @@ public class Frame extends JFrame {
                 this.setResizable(false);
                 //--------------------/Frame Setup---------------------
     }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == addItemButton){
+
+                }
+                if(e.getSource() == dataBaseButton){
+                        this.dispose();
+                        new DataBase();
+                }
+        }
 }
