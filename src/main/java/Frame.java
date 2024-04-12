@@ -10,7 +10,7 @@ public class Frame extends JFrame {
         JRadioButton disceplineElectiveButton;
         JRadioButton disceplineProgramButton;
         ButtonGroup disceplineGroup;
-        JComboBox<String> departmentList;
+        JComboBox<String> departmentComboBox;
         JLabel departmentLabel;
         Frame(){
                 super("CourseWork");
@@ -55,8 +55,8 @@ public class Frame extends JFrame {
 
                 //---------------------DepartmentComboBox---------------------
                 String[] departments = {"Department of Computer Science", "Department of Mathematics", "Department of Physics"};
-                departmentList = new JComboBox<>(departments);
-                departmentList.setBounds(200, 150, 200, 20);
+                departmentComboBox = new JComboBox<>(departments);
+                departmentComboBox.setBounds(200, 150, 200, 20);
                 //--------------------/DepartmentComboBox---------------------
 
                 //---------------------Frame Setup---------------------
@@ -67,7 +67,7 @@ public class Frame extends JFrame {
                 this.add(disceplineLabel);
                 this.add(disceplineElectiveButton);
                 this.add(disceplineProgramButton);
-                this.add(departmentList);
+                this.add(departmentComboBox);
                 this.add(departmentLabel);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
