@@ -10,6 +10,8 @@ public class Frame extends JFrame {
         JRadioButton disceplineElectiveButton;
         JRadioButton disceplineProgramButton;
         ButtonGroup disceplineGroup;
+        JComboBox<String> departmentList;
+        JLabel departmentLabel;
         Frame(){
                 super("CourseWork");
                 //Window size
@@ -46,10 +48,15 @@ public class Frame extends JFrame {
                 disceplineGroup.add(disceplineElectiveButton);
                 //--------------------/Discipline Buttons---------------------
 
+                //---------------------DepartmentLabel---------------------
+                departmentLabel = new JLabel("Choose department:");
+                departmentLabel.setBounds(30, 150, 200, 20);
+                //--------------------/DepartmentLabel---------------------
+
                 //---------------------DepartmentComboBox---------------------
                 String[] departments = {"Department of Computer Science", "Department of Mathematics", "Department of Physics"};
-                JComboBox<String> departmentList = new JComboBox<>(departments);
-                departmentList.setBounds(30, 150, 200, 20);
+                departmentList = new JComboBox<>(departments);
+                departmentList.setBounds(200, 150, 200, 20);
                 //--------------------/DepartmentComboBox---------------------
 
                 //---------------------Frame Setup---------------------
@@ -61,6 +68,7 @@ public class Frame extends JFrame {
                 this.add(disceplineElectiveButton);
                 this.add(disceplineProgramButton);
                 this.add(departmentList);
+                this.add(departmentLabel);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setSize(width, height);
