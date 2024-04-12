@@ -37,14 +37,14 @@ public class DataBase extends JFrame implements ActionListener {
 
         //---------------------searchField settings---------------------
         searchField = new JTextField();
-        searchField.setBounds(100, 0, 400, 25);
+        searchField.setBounds(100, 0, 200, 25);
         searchField.setFont(new Font("Serif", Font.PLAIN, 30));
         searchPanel.add(searchField);
         //--------------------/searchField settings---------------------
 
         //---------------------searchButton settings---------------------
         searchButton = new JButton("Search");
-        searchButton.setBounds(500, 0, 100, 25);
+        searchButton.setBounds(325, 0, 100, 25);
         searchButton.setFocusable(false);
         searchButton.addActionListener(this);
         searchPanel.add(searchButton);
@@ -52,7 +52,7 @@ public class DataBase extends JFrame implements ActionListener {
 
         //---------------------removeButton settings---------------------
         removeButton = new JButton("Remove");
-        removeButton.setBounds(900, 0, 100, 25);
+        removeButton.setBounds(850, 0, 100, 25);
         removeButton.setFocusable(false);
         removeButton.addActionListener(this);
         searchPanel.add(removeButton);
