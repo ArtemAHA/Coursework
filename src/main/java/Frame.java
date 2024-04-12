@@ -143,12 +143,6 @@ public class Frame extends JFrame implements ActionListener {
                         lastNameField.setText("");
                         disceplineNameField.setText("");
                         disceplineTimeField.setText("");
-                        System.out.println(teacherData.get(0).getName());
-                        System.out.println(teacherData.get(0).getLastName());
-                        System.out.println(teacherData.get(0).getDiscepline());
-                        System.out.println(teacherData.get(0).getDepartment());
-                        System.out.println(teacherData.get(0).getDisceplineName());
-                        System.out.println(teacherData.get(0).getDisceplineTime());
                 }
                 if(e.getSource() == dataBaseButton){
                         this.dispose();
