@@ -112,8 +112,7 @@ public class DataBase extends JFrame implements ActionListener {
             for (int i = 0; i < dataTable.getRowCount(); i++) {
                 for (int j = 0; j < dataTable.getColumnCount(); j++) {
                     if (dataTable.getValueAt(i, j).toString().toLowerCase().contains(searchQuery)) {
-                        dataTable.setRowSelectionInterval(i, i);
-                        return;
+                        dataTable.getSelectionModel().addSelectionInterval(i, i);
                     }
                 }
             }
