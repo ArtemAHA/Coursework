@@ -1,7 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame extends JFrame{
+public class Frame extends JFrame {
+        JLabel nameLabel;
+        JTextField nameField;
+        JLabel lastNameLabel;
+        JTextField lastNameField;
+        JLabel disceplineLabel;
+        JRadioButton disceplineElectiveButton;
+        JRadioButton disceplineProgramButton;
+        ButtonGroup disceplineGroup;
         Frame(){
                 super("CourseWork");
                 //Window size
@@ -9,41 +17,41 @@ public class Frame extends JFrame{
                 final int height = 750;
 
                 //---------------------Labels and TextFields---------------------
-                JLabel name = new JLabel("Enter name:");
-                name.setBounds(30, 40, 200, 20);
-                JTextField nameField = new JTextField();
+                nameLabel = new JLabel("Enter name:");
+                nameLabel.setBounds(30, 40, 200, 20);
+                nameField = new JTextField();
                 nameField.setBounds(165, 40, 150, 20);
 
-                JLabel lastName = new JLabel("Enter last name:");
-                lastName.setBounds(30, 70, 200, 20);
-                JTextField lastNameField = new JTextField();
+                lastNameLabel = new JLabel("Enter last name:");
+                lastNameLabel.setBounds(30, 70, 200, 20);
+                lastNameField = new JTextField();
                 lastNameField.setBounds(165, 70, 150,20);
 
-                JLabel discepline = new JLabel("Enter discepline:");
-                discepline.setBounds(30, 110, 200, 20);
+                disceplineLabel = new JLabel("Enter discepline:");
+                disceplineLabel.setBounds(30, 110, 200, 20);
                 //--------------------/Labels and TextFields---------------------
 
                 //---------------------Discipline Buttons---------------------
-                JRadioButton disceplineElectiveButton = new JRadioButton("Elective");
+                disceplineElectiveButton = new JRadioButton("Elective");
                 disceplineElectiveButton.setBounds(165, 110, 100, 20);
                 disceplineElectiveButton.setFocusable(false);
 
-                JRadioButton disceplineProgramButton = new JRadioButton("According to the program");
+                disceplineProgramButton = new JRadioButton("According to the program");
                 disceplineProgramButton.setBounds(265, 110, 200, 20);
                 disceplineProgramButton.setFocusable(false);
                 disceplineProgramButton.setSelected(true);
 
-                ButtonGroup disceplineGroup = new ButtonGroup();
+                disceplineGroup = new ButtonGroup();
                 disceplineGroup.add(disceplineProgramButton);
                 disceplineGroup.add(disceplineElectiveButton);
                 //--------------------/Discipline Buttons---------------------
 
                 //---------------------Frame Setup---------------------
-                this.add(name);
+                this.add(nameLabel);
                 this.add(nameField);
-                this.add(lastName);
+                this.add(lastNameLabel);
                 this.add(lastNameField);
-                this.add(discepline);
+                this.add(disceplineLabel);
                 this.add(disceplineElectiveButton);
                 this.add(disceplineProgramButton);
 
