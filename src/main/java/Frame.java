@@ -10,8 +10,14 @@ public class Frame extends JFrame {
         JRadioButton disceplineElectiveButton;
         JRadioButton disceplineProgramButton;
         ButtonGroup disceplineGroup;
-        JComboBox<String> departmentComboBox;
+        JComboBox<String> departmentList;
         JLabel departmentLabel;
+        JLabel disceplineName;
+        JTextField disceplineNameField;
+        JLabel disceplineTime;
+        JTextField disceplineTimeField;
+        JButton addItemButton;
+        JButton dataBase;
         Frame(){
                 super("CourseWork");
                 //Window size
@@ -55,9 +61,35 @@ public class Frame extends JFrame {
 
                 //---------------------DepartmentComboBox---------------------
                 String[] departments = {"Department of Computer Science", "Department of Mathematics", "Department of Physics"};
-                departmentComboBox = new JComboBox<>(departments);
-                departmentComboBox.setBounds(200, 150, 200, 20);
+                departmentList = new JComboBox<>(departments);
+                departmentList.setBounds(165, 150, 200, 20);
                 //--------------------/DepartmentComboBox---------------------
+
+                //---------------------Discepline name------------------------
+                disceplineName = new JLabel("Enter discepline name:");
+                disceplineName.setBounds(30, 200, 200, 20);
+                disceplineNameField = new JTextField();
+                disceplineNameField.setBounds(165, 200, 150,20);
+                //---------------------/Discepline name----------------------
+
+                //---------------------Time for exam-------------------------
+                disceplineTime = new JLabel("Alloted time for exam:");
+                disceplineTime.setBounds(30, 235, 200, 20);
+                disceplineTimeField = new JTextField();
+                disceplineTimeField.setBounds(165, 235, 150,20);
+                //---------------------/Time for exam-----------------------
+
+                //---------------------AddItemButton------------------------
+                addItemButton = new JButton("ADD");
+                addItemButton.setSize(170, 50);
+                addItemButton.setBounds(150, 330, 170, 50);
+                //---------------------/AddItemButton------------------------
+
+                //----------------------Database-----------------------------
+                dataBase = new JButton("Database");
+                dataBase.setSize(170, 50);
+                dataBase.setBounds(620, 330, 170, 50);
+                //----------------------/Database-----------------------------
 
                 //---------------------Frame Setup---------------------
                 this.add(nameLabel);
@@ -67,8 +99,14 @@ public class Frame extends JFrame {
                 this.add(disceplineLabel);
                 this.add(disceplineElectiveButton);
                 this.add(disceplineProgramButton);
-                this.add(departmentComboBox);
+                this.add(departmentList);
                 this.add(departmentLabel);
+                this.add(disceplineName);
+                this.add(disceplineNameField);
+                this.add(disceplineTime);
+                this.add(disceplineTimeField);
+                this.add(addItemButton);
+                this.add(dataBase);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setSize(width, height);
