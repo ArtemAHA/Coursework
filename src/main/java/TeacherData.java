@@ -1,5 +1,5 @@
 public class TeacherData {
-    private static int idCounter = 0;
+    private static int idCounter = 1;
     private int id;
     private String name;
     private String lastName;
@@ -43,30 +43,6 @@ public class TeacherData {
 
     public String getDisceplineTime() {
         return disceplineTime;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setDiscepline(String discepline) {
-        this.discepline = discepline;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public void setDisceplineName(String disceplineName) {
-        this.disceplineName = disceplineName;
-    }
-
-    public void setDisceplineTime(String disceplineTime) {
-        this.disceplineTime = disceplineTime;
     }
 
 }
