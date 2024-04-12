@@ -92,7 +92,7 @@ public class Frame extends JFrame implements ActionListener {
                 dataBaseButton = new JButton("Database");
                 dataBaseButton.setSize(170, 50);
                 dataBaseButton.setBounds(620, 330, 170, 50);
-                addItemButton.addActionListener(this);
+                dataBaseButton.addActionListener(this);
                 //----------------------/Database-----------------------------
 
                 //---------------------Frame Setup---------------------
