@@ -139,6 +139,7 @@ public class Frame extends JFrame implements ActionListener {
                         String disceplineName = disceplineNameField.getText();
                         String disceplineTime = disceplineTimeField.getText();
                         teacherData.add(new TeacherData(name, lastName, discepline, department, disceplineName, disceplineTime));
+                        DataBaseCSV.saveToCSV(teacherData, true);
                         nameField.setText("");
                         lastNameField.setText("");
                         disceplineNameField.setText("");

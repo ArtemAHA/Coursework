@@ -18,7 +18,7 @@ public class DataBase extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     DataBase(ArrayList<TeacherData> teacherDataList) {
         //---------------------Data Table Setup---------------------
-        this.teacherDataList = teacherDataList;
+        this.teacherDataList = DataBaseCSV.loadFromCSV();
         String[][] data = new String[teacherDataList.size()][7];
 
         for (int i = 0; i < teacherDataList.size(); i++) {
@@ -85,6 +85,7 @@ public class DataBase extends JFrame implements ActionListener {
         DefaultTableModel model = new DefaultTableModel(data, columnsNames);
         dataTable = new JTable(model);
         scrollPane = new JScrollPane(dataTable);
+        updateTableModel();
         scrollPane.setBounds(0, 130, 1000, 620);
         this.add(scrollPane);
         //--------------------/dataTable settings---------------------
@@ -123,7 +124,16 @@ public class DataBase extends JFrame implements ActionListener {
             if (selectedRow != -1) {
                 teacherDataList.remove(selectedRow);
                 ((DefaultTableModel) dataTable.getModel()).removeRow(selectedRow);
+                DataBaseCSV.saveToCSV(teacherDataList, false);
             }
+        }
+    }
+
+    public void updateTableModel() {
+        DefaultTableModel model = (DefaultTableModel) dataTable.getModel();
+        model.setRowCount(0); // Clear the existing data
+        for (TeacherData teacherData : teacherDataList) {
+            model.addRow(new Object[]{teacherData.getId(), teacherData.getName(), teacherData.getLastName(), teacherData.getDiscepline(), teacherData.getDepartment(), teacherData.getDisceplineName(), teacherData.getDisceplineTime()});
         }
     }
 }
