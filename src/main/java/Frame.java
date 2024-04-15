@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Frame extends JFrame implements ActionListener {
         JLabel nameLabel;
@@ -20,6 +21,7 @@ public class Frame extends JFrame implements ActionListener {
         JTextField disceplineTimeField;
         JButton addItemButton;
         JButton dataBaseButton;
+        ArrayList<TeacherData> teacherData = new ArrayList<TeacherData>();
         Frame(){
                 super("CourseWork");
                 //Window size
@@ -125,11 +127,27 @@ public class Frame extends JFrame implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == addItemButton){
-
+                        String name = nameField.getText();
+                        String lastName = lastNameField.getText();
+                        String discepline = "";
+                        if(disceplineElectiveButton.isSelected()){
+                                discepline = "Elective";
+                        } else {
+                                discepline = "According to the program";
+                        }
+                        String department = departmenComboBox.getSelectedItem().toString();
+                        String disceplineName = disceplineNameField.getText();
+                        String disceplineTime = disceplineTimeField.getText();
+                        teacherData.add(new TeacherData(name, lastName, discepline, department, disceplineName, disceplineTime));
+                        DataBaseCSV.saveToCSV(teacherData, true);
+                        nameField.setText("");
+                        lastNameField.setText("");
+                        disceplineNameField.setText("");
+                        disceplineTimeField.setText("");
                 }
                 if(e.getSource() == dataBaseButton){
                         this.dispose();
-                        new DataBase();
+                        new DataBase(teacherData);
                 }
         }
 }
