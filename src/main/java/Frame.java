@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-//ЦЕЙ КУРСАЧ НАПИСАВ БОГДАН КОШНІН, АРТЕМ ПІЗДАБОЛ
 
 public class Frame extends JFrame implements ActionListener {
         JLabel nameLabel;
