@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Locale;
 
+//ЦЕЙ КУРСАЧ НАПИСАВ БОГДАН КОШНІН, АРТЕМ ПІЗДАБОЛ
+
 public class DataBase extends JFrame implements ActionListener {
     JPanel dataBasePanel;
     JPanel searchPanel;

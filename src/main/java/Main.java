@@ -1,5 +1,7 @@
 import java.io.File;
 
+//ЦЕЙ КУРСАЧ НАПИСАВ БОГДАН КОШНІН, АРТЕМ ПІЗДАБОЛ
+
 public class Main {
     public static void main(String[] args) {
         File file = new File("dataBase.csv");
