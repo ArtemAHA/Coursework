@@ -16,6 +16,7 @@ public class DataBase extends JFrame implements ActionListener {
     ArrayList<TeacherData> teacherDataList;
     JTable dataTable;
     JScrollPane scrollPane;
+    JButton backButton;
     DataBase(ArrayList<TeacherData> teacherDataList) {
         //---------------------Data Table Setup---------------------
         this.teacherDataList = DataBaseCSV.loadFromCSV();
@@ -60,14 +61,14 @@ public class DataBase extends JFrame implements ActionListener {
 
         //---------------------searchField settings---------------------
         searchField = new JTextField();
-        searchField.setBounds(100, 0, 200, 25);
+        searchField.setBounds(100, 3, 200, 25);
         searchField.setFont(new Font("Serif", Font.PLAIN, 30));
         searchPanel.add(searchField);
         //--------------------/searchField settings---------------------
 
         //---------------------searchButton settings---------------------
         searchButton = new JButton("Search");
-        searchButton.setBounds(325, 0, 100, 25);
+        searchButton.setBounds(325, 3, 100, 25);
         searchButton.setFocusable(false);
         searchButton.addActionListener(this);
         searchPanel.add(searchButton);
@@ -75,7 +76,7 @@ public class DataBase extends JFrame implements ActionListener {
 
         //---------------------removeButton settings---------------------
         removeButton = new JButton("Remove");
-        removeButton.setBounds(850, 0, 100, 25);
+        removeButton.setBounds(700, 3, 100, 25);
         removeButton.setFocusable(false);
         removeButton.addActionListener(this);
         searchPanel.add(removeButton);
@@ -89,6 +90,14 @@ public class DataBase extends JFrame implements ActionListener {
         scrollPane.setBounds(0, 130, 1000, 620);
         this.add(scrollPane);
         //--------------------/dataTable settings---------------------
+
+        //-------------------Back button--------------------------
+        backButton = new JButton("Back");
+        backButton.setBounds(850, 3, 100, 25);
+        backButton.setFocusable(false);
+        backButton.addActionListener(this);
+        searchPanel.add(backButton);
+        //-------------------/Back button--------------------------
 
         //---------------------Frame settings---------------------
         this.setTitle("Data Base");
@@ -127,6 +136,11 @@ public class DataBase extends JFrame implements ActionListener {
                 DataBaseCSV.saveToCSV(teacherDataList, false);
             }
         }
+
+        if(e.getSource() == backButton) {
+            this.dispose();
+            new Frame();
+        }
     }
 
     public void updateTableModel() {
@@ -136,4 +150,5 @@ public class DataBase extends JFrame implements ActionListener {
             model.addRow(new Object[]{teacherData.getId(), teacherData.getName(), teacherData.getLastName(), teacherData.getDiscepline(), teacherData.getDepartment(), teacherData.getDisceplineName(), teacherData.getDisceplineTime()});
         }
     }
+
 }
