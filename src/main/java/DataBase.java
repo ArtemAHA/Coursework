@@ -110,6 +110,7 @@ public class DataBase extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == searchButton) {
             String searchQuery = searchField.getText().toLowerCase();
+            dataTable.clearSelection();
             for (int i = 0; i < dataTable.getRowCount(); i++) {
                 for (int j = 0; j < dataTable.getColumnCount(); j++) {
                     if (dataTable.getValueAt(i, j).toString().toLowerCase().contains(searchQuery)) {
@@ -120,12 +121,13 @@ public class DataBase extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == removeButton) {
-            int selectedRow = dataTable.getSelectedRow();
-            if (selectedRow != -1) {
+            int[] selectedRows = dataTable.getSelectedRows();
+            for (int i = selectedRows.length - 1; i >= 0; i--) {
+                int selectedRow = selectedRows[i];
                 teacherDataList.remove(selectedRow);
                 ((DefaultTableModel) dataTable.getModel()).removeRow(selectedRow);
-                DataBaseCSV.saveToCSV(teacherDataList, false);
             }
+            DataBaseCSV.saveToCSV(teacherDataList, false);
         }
     }
 
