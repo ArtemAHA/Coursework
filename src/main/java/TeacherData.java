@@ -7,8 +7,9 @@ public class TeacherData {
     private String department;
     private String disceplineName;
     private String disceplineTime;
+    private String rating;
 
-    public TeacherData(String name, String lastName, String discepline, String department, String disceplineName, String disceplineTime) {
+    public TeacherData(String name, String lastName, String discepline, String department, String disceplineName, String disceplineTime, String rating) {
         this.id = idCounter++;
         this.name = name;
         this.lastName = lastName;
@@ -16,6 +17,7 @@ public class TeacherData {
         this.department = department;
         this.disceplineName = disceplineName;
         this.disceplineTime = disceplineTime;
+        this.rating = rating;
     }
     public int getId() {
         return id;
@@ -43,6 +45,10 @@ public class TeacherData {
 
     public String getDisceplineTime() {
         return disceplineTime;
+    }
+
+    public String getRating() {
+        return rating;
     }
 
 }

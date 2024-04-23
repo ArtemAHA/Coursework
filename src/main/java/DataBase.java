@@ -18,11 +18,11 @@ public class DataBase extends JFrame implements ActionListener {
     JTable dataTable;
     JScrollPane scrollPane;
     JButton backButton;
+    JButton retakeButton;
     DataBase(ArrayList<TeacherData> teacherDataList) {
         //---------------------Data Table Setup---------------------
         this.teacherDataList = DataBaseCSV.loadFromCSV();
-        String[][] data = new String[teacherDataList.size()][7];
-
+        String[][] data = new String[teacherDataList.size()][8];
         for (int i = 0; i < teacherDataList.size(); i++) {
             TeacherData teacherData = teacherDataList.get(i);
             data[i][0] = String.valueOf(teacherData.getId());
@@ -32,9 +32,10 @@ public class DataBase extends JFrame implements ActionListener {
             data[i][4] = teacherData.getDepartment();
             data[i][5] = teacherData.getDisceplineName();
             data[i][6] = teacherData.getDisceplineTime();
+            data[i][7] = teacherData.getRating();
         }
 
-        String[] columnsNames = {"ID", "Name", "Last Name", "Discepline", "Department", "Discepline Name", "Discepline Time"};
+        String[] columnsNames = {"ID", "Name", "Last Name", "Discepline", "Department", "Discepline Name", "Discepline Time", "Rating"};
         //--------------------/Data Table Setup---------------------
 
 
@@ -77,7 +78,7 @@ public class DataBase extends JFrame implements ActionListener {
 
         //---------------------removeButton settings---------------------
         removeButton = new JButton("Remove");
-        removeButton.setBounds(700, 3, 100, 25);
+        removeButton.setBounds(730, 3, 100, 25);
         removeButton.setFocusable(false);
         removeButton.addActionListener(this);
         searchPanel.add(removeButton);
@@ -100,6 +101,14 @@ public class DataBase extends JFrame implements ActionListener {
         searchPanel.add(backButton);
         //-------------------/Back button--------------------------
 
+        //-------------------Retake button------------------------
+        retakeButton = new JButton("Retake");
+        retakeButton.setBounds(610, 3, 100, 25);
+        retakeButton.setFocusable(false);
+        retakeButton.addActionListener(this);
+        searchPanel.add(retakeButton);
+        //-------------------Retake button------------------------
+
         //---------------------Frame settings---------------------
         this.setTitle("Data Base");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,6 +124,7 @@ public class DataBase extends JFrame implements ActionListener {
         this.setVisible(true);
         //--------------------/Frame settings---------------------
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -138,11 +148,16 @@ public class DataBase extends JFrame implements ActionListener {
                 ((DefaultTableModel) dataTable.getModel()).removeRow(selectedRow);
             }
             DataBaseCSV.saveToCSV(teacherDataList, false);
+            RetakeCSV.saveToCSV(teacherDataList, false);
         }
 
         if(e.getSource() == backButton) {
             this.dispose();
             new Frame();
+        }
+        if(e.getSource() == retakeButton) {
+            this.dispose();
+            new Retake(teacherDataList);
         }
     }
 
@@ -150,7 +165,7 @@ public class DataBase extends JFrame implements ActionListener {
         DefaultTableModel model = (DefaultTableModel) dataTable.getModel();
         model.setRowCount(0); // Clear the existing data
         for (TeacherData teacherData : teacherDataList) {
-            model.addRow(new Object[]{teacherData.getId(), teacherData.getName(), teacherData.getLastName(), teacherData.getDiscepline(), teacherData.getDepartment(), teacherData.getDisceplineName(), teacherData.getDisceplineTime()});
+            model.addRow(new Object[]{teacherData.getId(), teacherData.getName(), teacherData.getLastName(), teacherData.getDiscepline(), teacherData.getDepartment(), teacherData.getDisceplineName(), teacherData.getDisceplineTime(), teacherData.getRating()});
         }
     }
 

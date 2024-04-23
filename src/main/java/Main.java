@@ -11,6 +11,15 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        File file1 = new File("dataBaseRetake.csv");
+        if (!file1.exists()) {
+            try {
+                file1.createNewFile();
+            } catch (Exception e) {
+                System.out.println("An error occurred while creating a file");
+                e.printStackTrace();
+            }
+        }
         new Frame();
     }
 }

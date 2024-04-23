@@ -22,6 +22,8 @@ public class Frame extends JFrame implements ActionListener {
         JTextField disceplineTimeField;
         JButton addItemButton;
         JButton dataBaseButton;
+        JLabel ratingLabel;
+        JTextField ratingField;
         ArrayList<TeacherData> teacherData = new ArrayList<TeacherData>();
         Frame(){
                 super("CourseWork");
@@ -84,6 +86,13 @@ public class Frame extends JFrame implements ActionListener {
                 disceplineTimeField.setBounds(165, 235, 150,20);
                 //---------------------/Time for exam-----------------------
 
+                //---------------------Rating student------------------------
+                ratingLabel = new JLabel("Student rating:");
+                ratingLabel.setBounds(30, 265, 200, 20);
+                ratingField = new JTextField();
+                ratingField.setBounds(165, 265, 150, 20);
+                //---------------------/Rating student------------------------
+
                 //---------------------AddItemButton------------------------
                 addItemButton = new JButton("ADD");
                 addItemButton.setSize(170, 50);
@@ -97,6 +106,8 @@ public class Frame extends JFrame implements ActionListener {
                 dataBaseButton.setBounds(620, 330, 170, 50);
                 dataBaseButton.addActionListener(this);
                 //----------------------/Database-----------------------------
+
+
 
                 //---------------------Frame Setup---------------------
                 this.add(nameLabel);
@@ -114,6 +125,8 @@ public class Frame extends JFrame implements ActionListener {
                 this.add(disceplineTimeField);
                 this.add(addItemButton);
                 this.add(dataBaseButton);
+                this.add(ratingLabel);
+                this.add(ratingField);
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setSize(width, height);
@@ -139,12 +152,15 @@ public class Frame extends JFrame implements ActionListener {
                         String department = departmenComboBox.getSelectedItem().toString();
                         String disceplineName = disceplineNameField.getText();
                         String disceplineTime = disceplineTimeField.getText();
-                        teacherData.add(new TeacherData(name, lastName, discepline, department, disceplineName, disceplineTime));
+                        String rating = ratingField.getText();
+                        teacherData.add(new TeacherData(name, lastName, discepline, department, disceplineName, disceplineTime, rating));
                         DataBaseCSV.saveToCSV(teacherData, true);
+                        RetakeCSV.saveToCSV(teacherData, true);
                         nameField.setText("");
                         lastNameField.setText("");
                         disceplineNameField.setText("");
                         disceplineTimeField.setText("");
+                        ratingField.setText("");
                 }
                 if(e.getSource() == dataBaseButton){
                         this.dispose();

@@ -1,21 +1,21 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class DataBaseCSV {
-
+public class RetakeCSV {
     public static void saveToCSV(List<TeacherData> teacherDataList, boolean append) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("dataBase.csv"), append))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("dataBaseRetake.csv"), append))) {
             for(TeacherData teacherData : teacherDataList) {
-                writer.write(teacherData.getId() + ","
-                        + teacherData.getName() + ","
-                        + teacherData.getLastName() + ","
-                        + teacherData.getDiscepline() + ","
-                        + teacherData.getDepartment() + ","
-                        + teacherData.getDisceplineName() + ","
-                        + teacherData.getDisceplineTime() + ","
-                        + teacherData.getRating() + "\n");
+                if(Integer.parseInt(teacherData.getRating()) < 60) {
+                    writer.write(teacherData.getId() + ","
+                            + teacherData.getName() + ","
+                            + teacherData.getLastName() + ","
+                            + teacherData.getDiscepline() + ","
+                            + teacherData.getDepartment() + ","
+                            + teacherData.getDisceplineName() + ","
+                            + teacherData.getDisceplineTime() + ","
+                            + teacherData.getRating() + "\n");
+                }
             }
 
         } catch (IOException e) {
@@ -24,9 +24,9 @@ public class DataBaseCSV {
         }
     }
 
-    public static ArrayList<TeacherData> loadFromCSV() {
+    public static ArrayList<TeacherData> loadFromRetakeCSV() {
         ArrayList<TeacherData> teacherDataList = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("dataBase.csv")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("dataBaseRetake.csv")))) {
             String line;
             while((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
@@ -40,5 +40,4 @@ public class DataBaseCSV {
 
         return teacherDataList;
     }
-
 }
