@@ -26,6 +26,7 @@ public class DataBaseCSV {
 
     public static ArrayList<TeacherData> loadFromCSV() {
         ArrayList<TeacherData> teacherDataList = new ArrayList<>();
+        TeacherData.resetIdCounter(); // Reset the idCounter before loading data
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("dataBase.csv")))) {
             String line;
             while((line = reader.readLine()) != null) {

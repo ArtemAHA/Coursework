@@ -156,6 +156,7 @@ public class Frame extends JFrame implements ActionListener {
                         teacherData.add(new TeacherData(name, lastName, discepline, department, disceplineName, disceplineTime, rating));
                         DataBaseCSV.saveToCSV(teacherData, true);
                         RetakeCSV.saveToCSV(teacherData, true);
+                        teacherData.clear();
                         nameField.setText("");
                         lastNameField.setText("");
                         disceplineNameField.setText("");

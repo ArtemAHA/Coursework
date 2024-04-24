@@ -51,4 +51,12 @@ public class TeacherData {
         return rating;
     }
 
+    public static void resetIdCounter() {
+        idCounter = 1;
+    }
+
+    public static void setIdCount(int idCounter) {
+        TeacherData.idCounter = idCounter;
+    }
+
 }
